@@ -26,3 +26,34 @@ class Solution {
 
     }
 }
+
+
+//https://leetcode.com/problems/sort-colors/description/
+
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var sortColors = function(nums) {
+    let l = nums.length-1;
+        let s=0;
+        let e=l;
+        let m=0;
+    while(s<=e){
+        if(nums[s]==2){
+            let temp=nums[s]; 
+            nums[s]=nums[e];
+            nums[e]=temp;
+            e--;
+        }else if(nums[s]==1){
+            s++;
+        }else{
+            let temp=nums[s];
+            nums[s]=nums[m];
+            nums[m]=temp;
+            s++;
+            m++;
+        }
+    }
+    console.log(nums)
+};
